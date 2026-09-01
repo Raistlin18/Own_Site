@@ -5,8 +5,8 @@ A small Django portfolio application that demonstrates server-rendered pages and
 ## Features
 
 - Responsive portfolio and project pages built with Django templates and Bootstrap 5
-- Product search form with server-side validation
-- Product parser isolated from the HTTP layer for testability
+- Product search across Newegg, Alza, and eMAG, selected from the interface
+- Store-specific product parsers isolated from the HTTP layer for testability
 - Time-limited external requests, safe fallbacks, and visitor-friendly error messages
 - Automated tests for parsing, sorting, input validation, and rendered results
 
@@ -47,4 +47,4 @@ For production, set `DJANGO_DEBUG=False`, configure the public host name in `DJA
 
 ## Notes
 
-The product source is external and its HTML can change. The parser deliberately skips incomplete results and reports unavailable sources gracefully. For a production system, use the source's supported API where available and consider background jobs plus caching for long-running searches.
+Product sources are external and their HTML can change. The parsers deliberately skip incomplete results and report unavailable sources gracefully. Alza currently protects search pages with Cloudflare, so its scraper may report that automated requests are blocked. For a production system, use each store's supported API where available and consider background jobs plus caching for long-running searches.

@@ -18,7 +18,9 @@ def scraper(request):
 
     if request.method == "POST" and form.is_valid():
         try:
-            context["products"] = get_items(form.cleaned_data["product"])
+            context["products"] = get_items(
+                form.cleaned_data["store"], form.cleaned_data["product"]
+            )
         except ScraperError as exc:
             context["search_error"] = str(exc)
 

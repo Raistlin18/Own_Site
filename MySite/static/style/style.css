@@ -51,6 +51,11 @@ body {
     margin-bottom: 2rem;
 }
 
+.supported-stores {
+    color: #c7dce9;
+    margin-bottom: 2rem;
+}
+
 .project-card h2 {
     margin-bottom: 1rem;
 }
@@ -61,4 +66,9 @@ body {
 
 .search-form .form-control {
     max-width: 36rem;
+}
+
+.search-form .form-select {
+    margin-bottom: 1rem;
+    max-width: 20rem;
 }

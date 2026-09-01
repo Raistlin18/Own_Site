@@ -6,9 +6,15 @@ Product Finder | Developer Portfolio
 
 {% block content %}
     <h1 class="page-title">Product Finder</h1>
-    <p class="page-intro">Search for a product to see the lowest-priced matches found in the source catalogue.</p>
+    <p class="page-intro">Choose a store and search for a product to see the lowest-priced matching items.</p>
+    <p class="supported-stores"><strong>Supported stores:</strong> Newegg, Alza, and eMAG.</p>
     <form method="post" class="search-form">
             {% csrf_token %}
+            <label class="form-label" for="{{ form.store.id_for_label }}">{{ form.store.label }}</label>
+            {{ form.store }}
+            {% for error in form.store.errors %}
+                <p class="text-warning mt-2">{{ error }}</p>
+            {% endfor %}
             <label class="form-label" for="{{ form.product.id_for_label }}">{{ form.product.label }}</label>
             {{ form.product }}
             {% for error in form.product.errors %}
@@ -35,7 +41,7 @@ Product Finder | Developer Portfolio
                         {% for item in products %}
                             <tr>
                                 <td>{{ item.name }}</td>
-                                <td>${{ item.price }}</td>
+                                <td>{{ item.price }} {{ item.currency }}</td>
                                 <td><a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">View product</a></td>
                             </tr>
                         {% endfor %}
