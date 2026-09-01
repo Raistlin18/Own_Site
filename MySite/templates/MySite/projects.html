@@ -1,9 +1,16 @@
 {% extends 'MySite/base.html' %}
 
 {% block title %}
-Projects
+Projects | Developer Portfolio
 {% endblock %}
 
 {% block content %}
-    <h1 class="text-center" style="color: white">This page shows you the projects what I trying</h1>
+    <h1 class="page-title">Projects</h1>
+    <article class="project-card">
+        <p class="eyebrow">Django application</p>
+        <h2>Product Finder</h2>
+        <p>Searches a product catalogue and presents the lowest-priced matching items. The feature validates input, limits external requests, and handles unavailable sources without exposing technical errors to visitors.</p>
+        <p><strong>Technologies:</strong> Python, Django, Requests, Beautiful Soup, Bootstrap</p>
+        <a class="btn btn-outline-light" href="{% url 'scraper' %}">Try Product Finder</a>
+    </article>
 {% endblock %}

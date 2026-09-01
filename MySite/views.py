@@ -1,21 +1,25 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from .scraper import get_items as gi
-from tqdm.auto import tqdm
+
+from .forms import ProductSearchForm
+from .scraper import ScraperError, get_items
 
 
-# Create your views here.
-def index(response):
-    return render(response, 'MySite/index.html')
+def index(request):
+    return render(request, "MySite/index.html")
 
-def projects(response):
-    return render(response, 'MySite/projects.html')
 
-def scraper(response):
-    if response.method == "POST":
-        product = response.POST.get("product")
-        products = gi(product)
-        return render(response, "MySite/scraper.html", {'products': products})
-    else:
-        return render(response, "MySite/scraper.html")
+def projects(request):
+    return render(request, "MySite/projects.html")
 
+
+def scraper(request):
+    form = ProductSearchForm(request.POST or None)
+    context = {"form": form}
+
+    if request.method == "POST" and form.is_valid():
+        try:
+            context["products"] = get_items(form.cleaned_data["product"])
+        except ScraperError as exc:
+            context["search_error"] = str(exc)
+
+    return render(request, "MySite/scraper.html", context)

@@ -3,49 +3,62 @@
 }
 
 body {
+    min-height: 100vh;
     background-image: url("./../images/background1.jpg");
     background-position: center;
-    background-size: auto;
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-color: #101820;
+    color: #f3f6f8;
 }
 
-.sidenav {
-    height: 100%;
-    width: 250px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: rgb(0, 0, 0, 0.0);
-    overflow-x: hidden;
-    padding-top: 15%;
+.site-header {
+    background: rgb(8 17 27 / 90%);
+    border-bottom: 1px solid rgb(159 194 214 / 25%);
 }
 
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    border: none;
-    background-color: rgb(0, 0, 0, 0.0);
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    color: skyblue;
-    display: block;
-    outline: none;
+.hero,
+.project-card,
+.search-form {
+    background: rgb(8 17 27 / 86%);
+    border: 1px solid rgb(159 194 214 / 25%);
+    border-radius: 1rem;
+    padding: clamp(1.5rem, 5vw, 4rem);
+    box-shadow: 0 1rem 3rem rgb(0 0 0 / 25%);
 }
 
-.sidenav a:hover {
-    color: #f1f1f1;
+.hero h1 {
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+    max-width: 14ch;
 }
 
-.main {
-    margin-left: 100px;
-    padding: 25px 15px;
+.eyebrow {
+    color: #80c9ff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
-.testing {
-    max-width: 500px;
-    margin: auto;
+.page-title,
+.results-title {
+    margin-bottom: 1rem;
+}
+
+.page-intro {
+    max-width: 42rem;
+    margin-bottom: 2rem;
+}
+
+.project-card h2 {
+    margin-bottom: 1rem;
+}
+
+.results-title {
+    margin-top: 3rem;
+}
+
+.search-form .form-control {
+    max-width: 36rem;
 }
