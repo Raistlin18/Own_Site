@@ -6,15 +6,10 @@ Product Finder | Developer Portfolio
 
 {% block content %}
     <h1 class="page-title">Product Finder</h1>
-    <p class="page-intro">Choose a store and search for a product to see the lowest-priced matching items.</p>
-    <p class="supported-stores"><strong>Supported stores:</strong> Newegg, Alza, and eMAG.</p>
+    <p class="page-intro">Search eMAG for a product to see the lowest-priced matching items.</p>
+    <p class="supported-stores"><strong>Supported store:</strong> eMAG.</p>
     <form method="post" class="search-form">
             {% csrf_token %}
-            <label class="form-label" for="{{ form.store.id_for_label }}">{{ form.store.label }}</label>
-            {{ form.store }}
-            {% for error in form.store.errors %}
-                <p class="text-warning mt-2">{{ error }}</p>
-            {% endfor %}
             <label class="form-label" for="{{ form.product.id_for_label }}">{{ form.product.label }}</label>
             {{ form.product }}
             {% for error in form.product.errors %}

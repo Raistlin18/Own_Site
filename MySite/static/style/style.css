@@ -67,8 +67,3 @@ body {
 .search-form .form-control {
     max-width: 36rem;
 }
-
-.search-form .form-select {
-    margin-bottom: 1rem;
-    max-width: 20rem;
-}
